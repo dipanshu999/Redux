@@ -1,7 +1,7 @@
 import React from 'react'
 import 'react-redux'
 import { useDispatch, useSelector } from 'react-redux'
-import { addByValue, decrement, increment } from './store/reducer/counterSlice'
+import { addByValue, asyncUpdate, decrement, increment } from './store/reducer/counterSlice'
 
 export default function App() {
   const dispatch=useDispatch()
@@ -16,7 +16,7 @@ export default function App() {
 
       <button onClick={()=>dispatch(increment())} className='mx-auto mt-4 bg-red-400 p-2 block border'>Increment</button>
       <button onClick={()=>dispatch(decrement())} className='mx-auto mt-4 bg-green-400 p-2 block border'>Decrement</button>
-      <button onClick={()=>dispatch(addByValue(5))} className='mx-auto mt-4 bg-blue-400 p-2 block border'>Add by 5</button>
+      <button onClick={()=>dispatch(asyncUpdate(5))} className='mx-auto mt-4 bg-blue-400 p-2 block border'>Add by 5</button>
     
     </div>
   )

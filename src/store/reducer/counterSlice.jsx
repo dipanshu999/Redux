@@ -12,7 +12,7 @@ export const counterSlice = createSlice({
     reducers:{
         increment:(state)=>{
             state.value+=1;
-            state.naam.concat('a')
+            state.naam=state.naam.concat('a')
             console.log(state.naam)
         },
         decrement:(state)=>{
@@ -25,5 +25,11 @@ export const counterSlice = createSlice({
 })
 
 export const { increment, decrement, addByValue } = counterSlice.actions
+
+export const asyncUpdate=(amount)=>(dispatch)=>{
+    setTimeout(()=>{
+        dispatch(addByValue(amount))
+    },3000)
+}
 
 export default counterSlice.reducer
