@@ -969,11 +969,15 @@ export const UserSlice = createSlice({
   initialState,
 
   reducers:{
-
-  }
+    
+      filterUser:(state,action)=>{
+          console.log(state,action)
+          state.users=state.users.filter(item=>item.id<5)
+      } 
+    }
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = UserSlice.actions
+export const { filterUser } = UserSlice.actions
 
 export default UserSlice.reducer
