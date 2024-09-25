@@ -983,7 +983,7 @@ export const UserSlice = createSlice({
       },
 
       sortUser:(state)=>{
-        state.copyUsers.sort()
+        state.copyUsers.sort((a,b)=>a.firstname-b.firstname)
       }
     }
 })
