@@ -962,6 +962,8 @@ const initialState = {
     }
   }
 ]
+,
+  copyUsers:[]
 }
 
 export const UserSlice = createSlice({
@@ -972,12 +974,21 @@ export const UserSlice = createSlice({
     
       filterUser:(state,action)=>{
           console.log(state,action)
+          state.copyUsers=[...state.users]
           state.users=state.users.filter(item=>item.id<5)
-      } 
+      } ,
+
+      originalUser:(state)=>{
+        state.users=state.copyUsers
+      },
+
+      sortUser:(state)=>{
+        state.copyUsers.sort()
+      }
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { filterUser } = UserSlice.actions
+export const { filterUser,originalUser,sortUser } = UserSlice.actions
 
 export default UserSlice.reducer
